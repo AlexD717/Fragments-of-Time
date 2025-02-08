@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Values")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float coyoteTime;
 
     [Header("References")]
     [SerializeField] private InputActionAsset inputSystem;
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (groundCheck.isGrounded)
+        if (groundCheck.isGrounded || Time.time - groundCheck.timeLeftGround < coyoteTime)
         {
             rb.AddForceY(jumpForce, ForceMode2D.Impulse);
         }
