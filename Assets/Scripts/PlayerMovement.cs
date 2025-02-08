@@ -6,32 +6,59 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Values")]
     [SerializeField] private float speed;
+    [SerializeField] private float jumpForce;
 
     [Header("References")]
     [SerializeField] private InputActionAsset inputSystem;
-    private InputAction horizontalMovement;
+    private InputAction horizontalMovementAction;
+    private InputAction jumpAction;
     private float horizontalMovementValue;
+
+    private Rigidbody2D rb;
+    [SerializeField] private GroundCheck groundCheck;
 
     private void OnEnable()
     {
         // Find input actions
         var playerControlls = inputSystem.FindActionMap("Player");
-        horizontalMovement = playerControlls.FindAction("HorizontalMovement");
+        horizontalMovementAction = playerControlls.FindAction("HorizontalMovement");
+        jumpAction = playerControlls.FindAction("Jump");
 
-        horizontalMovement.Enable();
+        horizontalMovementAction.Enable();
+        jumpAction.Enable();
     }
 
     private void OnDisable()
     {
-        horizontalMovement.Disable();
+        horizontalMovementAction.Disable();
+        jumpAction.Disable();
+    }
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         // Get input value
-        horizontalMovementValue = horizontalMovement.ReadValue<float>();
+        horizontalMovementValue = horizontalMovementAction.ReadValue<float>();
+
+        // Check if jump triggered, and jump if needed
+        if (jumpAction.triggered)
+        {
+            Jump();
+        }
 
         ApplyHorizontalMovement();
+    }
+
+    private void Jump()
+    {
+        if (groundCheck.isGrounded)
+        {
+            rb.AddForceY(jumpForce, ForceMode2D.Impulse);
+        }
     }
 
     private void ApplyHorizontalMovement()
