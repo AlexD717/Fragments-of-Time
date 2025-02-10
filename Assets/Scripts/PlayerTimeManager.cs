@@ -1,12 +1,18 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerTimeManager : MonoBehaviour
 {
+    [SerializeField] private GameObject timeTraveledPlayer;
     [SerializeField] private InputActionAsset inputSystem;
     private InputAction timeTravelRestart;
 
     private bool actualTimeManager = false;
+    private List<Vector3> realPlayerPositions;
+    private Transform realPlayer;
 
     private void OnEnable()
     {
@@ -15,11 +21,20 @@ public class PlayerTimeManager : MonoBehaviour
         timeTravelRestart = playerControlls.FindAction("TimeTravelRestart");
 
         timeTravelRestart.Enable();
+
+        // Calls OnSceneLoad when scene loaded
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
 
     private void OnDisable()
     {
-        timeTravelRestart.Disable();
+        if (timeTravelRestart != null)
+        {
+            timeTravelRestart.Disable();
+        }
+
+        // Unsubscribes from scene loaded event
+        SceneManager.sceneLoaded -= OnSceneLoad;
     }
 
     private void Awake()
@@ -28,11 +43,25 @@ public class PlayerTimeManager : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("PlayerTimeManager").Length > 1 && !actualTimeManager) 
         {
             Destroy(gameObject);
+            gameObject.SetActive(false);
+            return;
         }
         else
         {
             DontDestroyOnLoad(gameObject);
             actualTimeManager = true;
+        }
+
+        realPlayerPositions = new List<Vector3>();
+    }
+
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        realPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+        if (realPlayerPositions.Count > 0)
+        {
+            InstantiateTimeTraveledPlayer();
+            realPlayerPositions.Clear();
         }
     }
 
@@ -44,8 +73,24 @@ public class PlayerTimeManager : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        RecordPlayerPosition();
+    }
+
+    private void RecordPlayerPosition()
+    {
+        realPlayerPositions.Add(realPlayer.position);
+    }
+
+    private void InstantiateTimeTraveledPlayer()
+    {
+        GameObject spawnedPlayer = Instantiate(timeTraveledPlayer);
+        spawnedPlayer.GetComponent<PlayerTimeTraveled>().positions = new List<Vector3>(realPlayerPositions);
+    }
+
     private void TimeTravelRestart()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Restarts current scene
     }
 }
