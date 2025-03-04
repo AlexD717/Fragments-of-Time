@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 948920209}
   - component: {fileID: 948920208}
   - component: {fileID: 948920212}
+  - component: {fileID: 948920213}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -459,6 +460,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949f2d01237ff0d40937732cff1c5349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &948920213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948920207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58924123ecd514a458fdc027f99b2e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenShatterWidth: {x: 5, y: 15}
+  numTotalShatters: 100
+  screenShatterPrefab: {fileID: 4964680118290160213, guid: ffc7f4da7641f6e448608187be911f27, type: 3}
+  startingTime: 1
+  r: 0.4
+  canvas: {fileID: 948920211}
 --- !u!1 &1170133241
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +836,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 948920212}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_MethodName: LoadScreenShatterLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
