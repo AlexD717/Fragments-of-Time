@@ -475,6 +475,9 @@ MonoBehaviour:
   screenShatterWidth: {x: 5, y: 15}
   numTotalShatters: 100
   screenShatterPrefab: {fileID: 4964680118290160213, guid: ffc7f4da7641f6e448608187be911f27, type: 3}
+  buttonToDeactivate:
+  - {fileID: 1387397278}
+  - {fileID: 361933399}
   startingTime: 1
   r: 0.4
   canvas: {fileID: 948920211}
@@ -815,7 +818,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.47798735, g: 0.47798735, b: 0.47798735, a: 0.69411767}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

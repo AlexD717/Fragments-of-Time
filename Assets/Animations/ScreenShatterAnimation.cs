@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScreenShatterAnimation : MonoBehaviour
 {
     [SerializeField] private Vector2 screenShatterWidth;
     [SerializeField] private int numTotalShatters;
     [SerializeField] private GameObject screenShatterPrefab;
+    [SerializeField] private Button[] buttonToDeactivate;
+    private bool buttonsDisabled = false;
+
     private bool screenShatterAnimStarted = false;
     private int numShatters = 0;
     [SerializeField] private float startingTime;
@@ -18,6 +22,15 @@ public class ScreenShatterAnimation : MonoBehaviour
     private void Update()
     {
         if (!screenShatterAnimStarted) return;
+        if (!buttonsDisabled)
+        {
+            foreach (Button button in buttonToDeactivate)
+            {
+                button.enabled = false;
+            }
+            buttonsDisabled = true;
+        }
+
 
         if (Time.time >= nextShatterTime)
         {
