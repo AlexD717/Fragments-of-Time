@@ -9,6 +9,9 @@ public class ScreenShatterAnimation : MonoBehaviour
     [SerializeField] private Button[] buttonToDeactivate;
     private bool buttonsDisabled = false;
 
+    [SerializeField] private float volumeReductionNum;
+    [SerializeField] private float newVolume;
+
     private bool screenShatterAnimStarted = false;
     private int numShatters = 0;
     [SerializeField] private float startingTime;
@@ -40,6 +43,7 @@ public class ScreenShatterAnimation : MonoBehaviour
             {
                 Loader.Load(nextLevelToLoad);
             }
+            
             nextShatterTime = Time.time + Mathf.Pow(startingTime*(1-r), numShatters);
         }
     }
@@ -60,5 +64,11 @@ public class ScreenShatterAnimation : MonoBehaviour
         screenShatter.transform.SetParent(canvas, true);
         RectTransform rectTransform = screenShatter.GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(rectTransform.rect.width, Random.Range(screenShatterWidth.x, screenShatterWidth.y));
+
+        // Reduce volume when to many shatters
+        if (numShatters >= volumeReductionNum)
+        {
+            screenShatter.GetComponent<AudioSource>().volume = newVolume;
+        }
     }
 }

@@ -478,9 +478,12 @@ MonoBehaviour:
   buttonToDeactivate:
   - {fileID: 1387397278}
   - {fileID: 361933399}
+  volumeReductionNum: 3
+  newVolume: 0.4
   startingTime: 1
   r: 0.4
   canvas: {fileID: 948920211}
+  finalSound: {fileID: 3442345441502647730, guid: 57e8c4c2045563b49b633548652e2dbf, type: 3}
 --- !u!1 &1170133241
 GameObject:
   m_ObjectHideFlags: 0
