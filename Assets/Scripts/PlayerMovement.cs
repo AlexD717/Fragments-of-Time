@@ -44,6 +44,16 @@ public class PlayerMovement : MonoBehaviour
         // Get input value
         horizontalMovementValue = horizontalMovementAction.ReadValue<float>();
 
+        // Rotate character to face correct direction
+        if (horizontalMovementValue > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (horizontalMovementValue < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
         // Check if jump triggered, and jump if needed
         if (jumpAction.triggered)
         {

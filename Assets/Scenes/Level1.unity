@@ -788,8 +788,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1557461647}
   - {fileID: 2027976418}
@@ -1261,9 +1261,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  jumpForce: 10
+  jumpForce: 8
   coyoteTime: 0.1
   inputSystem: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  characterImage: {fileID: 1530872444}
   groundCheck: {fileID: 195420598555333170}
 --- !u!114 &195420598555333170
 MonoBehaviour:

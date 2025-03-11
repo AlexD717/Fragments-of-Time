@@ -12,6 +12,7 @@ public class PlayerTimeManager : MonoBehaviour
 
     private bool actualTimeManager = false;
     private List<Vector3> realPlayerPositions;
+    private List<float> realPlayerXScale;
     private Transform realPlayer;
 
     private void OnEnable()
@@ -53,6 +54,7 @@ public class PlayerTimeManager : MonoBehaviour
         }
 
         realPlayerPositions = new List<Vector3>();
+        realPlayerXScale = new List<float>();
     }
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
@@ -61,7 +63,7 @@ public class PlayerTimeManager : MonoBehaviour
         if (realPlayerPositions.Count > 0)
         {
             InstantiateTimeTraveledPlayer();
-            realPlayerPositions.Clear();
+            ClearPlayerData();
         }
     }
 
@@ -75,18 +77,27 @@ public class PlayerTimeManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RecordPlayerPosition();
+        RecordPlayerData();
     }
 
-    private void RecordPlayerPosition()
+    private void RecordPlayerData()
     {
         realPlayerPositions.Add(realPlayer.position);
+        realPlayerXScale.Add(realPlayer.transform.localScale.x);
+    }
+
+    private void ClearPlayerData()
+    {
+        realPlayerPositions.Clear();
+        realPlayerXScale.Clear();
     }
 
     private void InstantiateTimeTraveledPlayer()
     {
         GameObject spawnedPlayer = Instantiate(timeTraveledPlayer);
-        spawnedPlayer.GetComponent<PlayerTimeTraveled>().positions = new List<Vector3>(realPlayerPositions);
+        PlayerTimeTraveled playerTimeTraveled = spawnedPlayer.GetComponent<PlayerTimeTraveled>();
+        playerTimeTraveled.positions = new List<Vector3>(realPlayerPositions);
+        playerTimeTraveled.xScale = new List<float>(realPlayerXScale);
     }
 
     private void TimeTravelRestart()
