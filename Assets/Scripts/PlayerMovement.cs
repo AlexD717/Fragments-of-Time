@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTime;
 
     [Header("References")]
+    [SerializeField] private Animator animator;
     [SerializeField] private InputActionAsset inputSystem;
     private InputAction horizontalMovementAction;
     private InputAction jumpAction;
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     [SerializeField] private GroundCheck groundCheck;
+
+    private bool inAirLastFrame = false;
 
     private void OnEnable()
     {
@@ -61,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         ApplyHorizontalMovement();
+
+        UpdateAnimation();
     }
 
     private void Jump()
@@ -75,5 +80,25 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveValue = horizontalMovementValue * speed * Time.deltaTime;
         transform.position += new Vector3(moveValue, 0, 0);
+    }
+
+    private void UpdateAnimation()
+    {
+        bool isGrounded = groundCheck.isGrounded;
+        if (inAirLastFrame && isGrounded)
+        {
+            // Player just landed on the ground
+            animator.SetTrigger("landedOnGround");
+        }
+        if (!isGrounded)
+        {
+            inAirLastFrame = true;
+        }
+        else
+        {
+            inAirLastFrame = false;
+        }
+
+        animator.SetBool("isGrounded", groundCheck.isGrounded);
     }
 }
