@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -10,10 +11,14 @@ public class PlayerTimeManager : MonoBehaviour
     [SerializeField] private InputActionAsset inputSystem;
     private InputAction timeTravelRestart;
 
+    private GroundCheck groundCheck;
+
     private bool actualTimeManager = false;
     private List<Vector3> realPlayerPositions;
     private List<float> realPlayerXScale;
     private Transform realPlayer;
+    private List<float> landedOnGroundTimes;
+    private List<bool> isGroundedList;
 
     private void OnEnable()
     {
@@ -55,6 +60,8 @@ public class PlayerTimeManager : MonoBehaviour
 
         realPlayerPositions = new List<Vector3>();
         realPlayerXScale = new List<float>();
+        landedOnGroundTimes = new List<float>();
+        isGroundedList = new List<bool>();
     }
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
@@ -65,6 +72,7 @@ public class PlayerTimeManager : MonoBehaviour
             InstantiateTimeTraveledPlayer();
             ClearPlayerData();
         }
+        groundCheck = FindFirstObjectByType<GroundCheck>();
     }
 
     private void Update()
@@ -84,12 +92,21 @@ public class PlayerTimeManager : MonoBehaviour
     {
         realPlayerPositions.Add(realPlayer.position);
         realPlayerXScale.Add(realPlayer.transform.localScale.x);
+
+        isGroundedList.Add(groundCheck.isGrounded);
+    }
+
+    public void PlayerLandedOnGround(float time)
+    {
+        landedOnGroundTimes.Add(time);
     }
 
     private void ClearPlayerData()
     {
         realPlayerPositions.Clear();
         realPlayerXScale.Clear();
+        landedOnGroundTimes.Clear();
+        isGroundedList.Clear();
     }
 
     private void InstantiateTimeTraveledPlayer()
@@ -98,6 +115,8 @@ public class PlayerTimeManager : MonoBehaviour
         PlayerTimeTraveled playerTimeTraveled = spawnedPlayer.GetComponent<PlayerTimeTraveled>();
         playerTimeTraveled.positions = new List<Vector3>(realPlayerPositions);
         playerTimeTraveled.xScale = new List<float>(realPlayerXScale);
+        playerTimeTraveled.landedOnGroundTimes = new List<float>(landedOnGroundTimes);
+        playerTimeTraveled.isGroundedList = new List<bool>(isGroundedList);
     }
 
     private void TimeTravelRestart()

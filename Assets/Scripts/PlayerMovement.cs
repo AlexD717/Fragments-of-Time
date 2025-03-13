@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     [SerializeField] private GroundCheck groundCheck;
+    private PlayerTimeManager playerTimeManager;
 
     private bool inAirLastFrame = false;
 
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerTimeManager = FindFirstObjectByType<PlayerTimeManager>();
     }
 
     private void Update()
@@ -89,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Player just landed on the ground
             animator.SetTrigger("landedOnGround");
+            playerTimeManager.PlayerLandedOnGround(Time.timeSinceLevelLoad);
         }
         if (!isGrounded)
         {
