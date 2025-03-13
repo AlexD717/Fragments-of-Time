@@ -21,6 +21,14 @@ public class PlayerMovement : MonoBehaviour
 
     private bool inAirLastFrame = false;
 
+    private enum AnimationStates
+    {
+        Idle,
+        Running,
+        Jumping,
+    }
+    private AnimationStates animationState;
+
     private void OnEnable()
     {
         // Find input actions
@@ -42,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerTimeManager = FindFirstObjectByType<PlayerTimeManager>();
+        animationState = AnimationStates.Idle;
     }
 
     private void Update()
@@ -87,21 +96,24 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateAnimation()
     {
         bool isGrounded = groundCheck.isGrounded;
-        if (inAirLastFrame && isGrounded)
-        {
-            // Player just landed on the ground
-            animator.SetTrigger("landedOnGround");
-            playerTimeManager.PlayerLandedOnGround(Time.timeSinceLevelLoad);
-        }
         if (!isGrounded)
         {
-            inAirLastFrame = true;
+            animationState = AnimationStates.Jumping;
+        }
+        else if (horizontalMovementValue == 0)
+        {
+            animationState = AnimationStates.Idle;
         }
         else
         {
-            inAirLastFrame = false;
+            animationState = AnimationStates.Running;
         }
 
-        animator.SetBool("isGrounded", groundCheck.isGrounded);
+        animator.SetInteger("state", GetAnimationState());
+    }
+
+    public int GetAnimationState()
+    {
+        return (int)animationState;
     }
 }
