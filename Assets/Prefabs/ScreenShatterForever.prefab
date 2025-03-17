@@ -198,3 +198,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a6a38ec2ef21e4aa9a825e701db0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartOnDifferentSceneLoad: 1

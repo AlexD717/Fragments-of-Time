@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -21,6 +19,8 @@ public class PlayerTimeManager : MonoBehaviour
     private Transform realPlayer;
     private PlayerMovement realPlayerMovement;
     private List<int> animationStates;
+
+    private string sceneName;
 
     private void OnEnable()
     {
@@ -63,17 +63,30 @@ public class PlayerTimeManager : MonoBehaviour
         realPlayerPositions = new List<Vector3>();
         realPlayerXScale = new List<float>();
         animationStates = new List<int>();
+
+        sceneName = SceneManager.GetActiveScene().name;
     }
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name == "LoadingScreen") { return; }
+
         realPlayer = GameObject.FindGameObjectWithTag("Player").transform;
-        if (realPlayerPositions.Count > 0)
+        realPlayerMovement = realPlayer.GetComponent<PlayerMovement>();
+
+        if (sceneName != scene.name)
         {
-            InstantiateTimeTraveledPlayer();
+            sceneName = scene.name;
             ClearPlayerData();
         }
-        realPlayerMovement = realPlayer.GetComponent<PlayerMovement>();
+        else
+        {
+            if (realPlayerPositions.Count > 0)
+            {
+                InstantiateTimeTraveledPlayer();
+                ClearPlayerData();
+            }
+        }
     }
 
     private void Update()
@@ -91,6 +104,8 @@ public class PlayerTimeManager : MonoBehaviour
 
     private void RecordPlayerData()
     {
+        if (realPlayer == null) { return; }
+
         realPlayerPositions.Add(realPlayer.position);
         realPlayerXScale.Add(realPlayer.transform.localScale.x);
 
