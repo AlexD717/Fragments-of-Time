@@ -56,7 +56,6 @@ public class ScreenShatterAnimation : MonoBehaviour
 
     private void SpawnScreenShatter()
     {
-
         // Gets a random point on the canvas 
         Vector3 screenPosition = new Vector3(Random.Range(0, canvas.rect.width/2), Random.Range(0, canvas.rect.height/2), 0);
 

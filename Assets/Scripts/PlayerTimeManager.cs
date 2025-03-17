@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerTimeManager : MonoBehaviour
 {
+    [Header("Animation")]
+    [SerializeField] private bool screenShatterOnTimeWarp;
+
+    [Header("References")]
     [SerializeField] private GameObject timeTraveledPlayer;
     [SerializeField] private InputActionAsset inputSystem;
     private InputAction timeTravelRestart;
-
-    private GroundCheck groundCheck;
 
     private bool actualTimeManager = false;
     private List<Vector3> realPlayerPositions;
@@ -71,7 +73,6 @@ public class PlayerTimeManager : MonoBehaviour
             InstantiateTimeTraveledPlayer();
             ClearPlayerData();
         }
-        groundCheck = FindFirstObjectByType<GroundCheck>();
         realPlayerMovement = realPlayer.GetComponent<PlayerMovement>();
     }
 
@@ -114,6 +115,15 @@ public class PlayerTimeManager : MonoBehaviour
 
     private void TimeTravelRestart()
     {
+        // Spawns a screen shatter animation if needed
+        if (screenShatterOnTimeWarp)
+        {
+            SingleScreenShatterSpawner singleScreenShatterSpawner = FindFirstObjectByType<SingleScreenShatterSpawner>();
+            if (singleScreenShatterSpawner != null)
+            {
+                singleScreenShatterSpawner.SpawnSingleScreenShatter();
+            }
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Restarts current scene
     }
 }

@@ -19,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GroundCheck groundCheck;
     private PlayerTimeManager playerTimeManager;
 
-    private bool inAirLastFrame = false;
-
     private enum AnimationStates
     {
         Idle,
