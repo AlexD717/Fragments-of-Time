@@ -24,7 +24,7 @@ public class SingleScreenShatterSpawner : MonoBehaviour
         float sizeX = validSpawnLocationX.x - validSpawnLocationX.y;
         float sizeY = validSpawnLocationY.x - validSpawnLocationY.y;
 
-        lenght = (Mathf.Sqrt(Mathf.Pow(sizeX, 2) + Mathf.Pow(sizeY, 2)) + 10) * 2;
+        lenght = (Mathf.Sqrt(Mathf.Pow(sizeX, 2) + Mathf.Pow(sizeY, 2)) + 50) * 2;
     }
 
     public void SpawnSingleScreenShatter()

@@ -128,7 +128,7 @@ public class PlayerTimeManager : MonoBehaviour
         playerTimeTraveled.animationStates = new List<int>(animationStates);
     }
 
-    private void TimeTravelRestart()
+    public void TimeTravelRestart()
     {
         // Spawns a screen shatter animation if needed
         if (screenShatterOnTimeWarp)
