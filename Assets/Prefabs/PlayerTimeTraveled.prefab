@@ -48,6 +48,7 @@ MonoBehaviour:
   positions: []
   xScale: []
   animationStates: 
+  opacityPerSecondToRemove: 0.4
 --- !u!1001 &1420904722638866649
 PrefabInstance:
   m_ObjectHideFlags: 0
