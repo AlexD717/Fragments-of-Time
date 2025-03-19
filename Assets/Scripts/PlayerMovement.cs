@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     [SerializeField] private GroundCheck groundCheck;
-    private PlayerTimeManager playerTimeManager;
 
     private enum AnimationStates
     {
@@ -47,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerTimeManager = FindFirstObjectByType<PlayerTimeManager>();
         animationState = AnimationStates.Idle;
     }
 

@@ -187,6 +187,17 @@
                     "action": "TimeTravelRestart",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82f6856a-0255-4da4-b3b9-52695f97e53e",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TimeTravelRestart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

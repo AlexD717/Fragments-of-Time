@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class PlayerTimeTraveled : MonoBehaviour
 {
