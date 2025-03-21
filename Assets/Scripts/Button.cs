@@ -16,9 +16,4 @@ public class Button : MonoBehaviour
     {
         playerOnPlatform = false;
     }
-
-    private void Update()
-    {
-        Debug.Log(playerOnPlatform);
-    }
 }

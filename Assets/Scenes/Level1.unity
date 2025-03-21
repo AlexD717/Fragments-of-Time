@@ -1232,6 +1232,7 @@ MonoBehaviour:
   redColor: {r: 1, g: 0.28627452, b: 0.29803923, a: 1}
   greenColor: {r: 0, g: 1, b: 0.057177782, a: 1}
   button: {fileID: 1456424462}
+  timeToBePressed: 0.1
 --- !u!50 &1393754984
 Rigidbody2D:
   serializedVersion: 5
