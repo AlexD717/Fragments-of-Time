@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+
 
 public class ButtonPlatform : MonoBehaviour
 {
@@ -6,13 +8,19 @@ public class ButtonPlatform : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Color redColor;
     [SerializeField] private Color greenColor;
-    [SerializeField] private Button button;
     private bool playerOnButton = false;
-    private bool buttonPressed = false;
+    [HideInInspector] public bool buttonPressed = false;
+    private List<bool> timesOn;
     private SpriteRenderer spriteRenderer;
 
     [SerializeField] private float timeToBePressed;
     private float timeWhenButtonPressed = Mathf.Infinity;
+
+    private void Awake()
+    {
+        Debug.Log("Times On Cleared");
+        timesOn = new List<bool>();
+    }
 
     private void Start()
     {
@@ -31,18 +39,24 @@ public class ButtonPlatform : MonoBehaviour
     {
         if (collision.gameObject.tag == "GroundCheck")
         {
-            button.playerExitButton();
             playerOnButton = false;
             spriteRenderer.color = redColor;
             timeWhenButtonPressed = Mathf.Infinity;
-            button.playerExitButton();
             buttonPressed = false;
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (Time.time > timeWhenButtonPressed)
+        Debug.Log(timesOn.Count);
+        bool pressedByTimeTraveledPlayer = false;
+        if (timesOn.Count > 0)
+        {
+            pressedByTimeTraveledPlayer = timesOn[0];
+            Debug.Log(pressedByTimeTraveledPlayer);
+            timesOn.RemoveAt(0);
+        }
+        if (Time.time > timeWhenButtonPressed || pressedByTimeTraveledPlayer)
         {
             ButtonPressed();
         }
@@ -52,7 +66,6 @@ public class ButtonPlatform : MonoBehaviour
     private void ButtonPressed()
     {
         buttonPressed = true;
-        button.playerEneterButton();
         spriteRenderer.color = greenColor;
     }
 
@@ -67,5 +80,12 @@ public class ButtonPlatform : MonoBehaviour
             float newYPos = ((transform.localPosition.y - targetYPos) * Time.deltaTime * speed);
             transform.localPosition -= new Vector3(0, newYPos, 0);
         }
+    }
+
+    public void SetTimesOn(List<bool> _timesOn)
+    {
+        Debug.Log("Setting Times On");
+        timesOn = new List<bool>(_timesOn);
+        Debug.Log(timesOn.Count);
     }
 }

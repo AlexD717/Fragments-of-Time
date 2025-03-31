@@ -6,7 +6,7 @@ public class ScreenShatterAnimation : MonoBehaviour
     [SerializeField] private Vector2 screenShatterWidth;
     [SerializeField] private int numTotalShatters;
     [SerializeField] private GameObject screenShatterPrefab;
-    [SerializeField] private Button[] buttonToDeactivate;
+    [SerializeField] private UnityEngine.UI.Button[] buttonToDeactivate;
     private bool buttonsDisabled = false;
 
     [SerializeField] private float volumeReductionNum;
@@ -27,7 +27,7 @@ public class ScreenShatterAnimation : MonoBehaviour
         if (!screenShatterAnimStarted) return;
         if (!buttonsDisabled)
         {
-            foreach (Button button in buttonToDeactivate)
+            foreach (UnityEngine.UI.Button button in buttonToDeactivate)
             {
                 button.enabled = false;
             }
