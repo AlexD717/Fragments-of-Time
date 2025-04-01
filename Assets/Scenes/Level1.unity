@@ -1093,7 +1093,7 @@ GameObject:
   - component: {fileID: 1393754981}
   - component: {fileID: 1393754984}
   m_Layer: 6
-  m_Name: ButtonPlatform_0
+  m_Name: ButtonPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1231,7 +1231,6 @@ MonoBehaviour:
   speed: 5
   redColor: {r: 1, g: 0.28627452, b: 0.29803923, a: 1}
   greenColor: {r: 0, g: 1, b: 0.057177782, a: 1}
-  button: {fileID: 1456424462}
   timeToBePressed: 0.1
 --- !u!50 &1393754984
 Rigidbody2D:
@@ -1269,7 +1268,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1456424461}
-  - component: {fileID: 1456424462}
   m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
@@ -1294,19 +1292,6 @@ Transform:
   - {fileID: 2004743308}
   m_Father: {fileID: 788202471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1456424462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456424460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2063c8cb0a1262e4cb369dc2109dd2df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platform: {fileID: 0}
 --- !u!1 &1494862675
 GameObject:
   m_ObjectHideFlags: 0
