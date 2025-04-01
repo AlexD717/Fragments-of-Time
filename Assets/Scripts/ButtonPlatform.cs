@@ -67,4 +67,9 @@ public class ButtonPlatform : MonoBehaviour
             transform.localPosition -= new Vector3(0, newYPos, 0);
         }
     }
+
+    public bool IsButtonPressed()
+    {
+        return buttonPressed;
+    }
 }
