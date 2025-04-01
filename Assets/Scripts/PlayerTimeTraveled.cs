@@ -8,6 +8,7 @@ public class PlayerTimeTraveled : MonoBehaviour
     [HideInInspector] public List<int> animationStates;
 
     private Animator animator;
+    private int lastAnimation;
 
     private Transform character;
     [SerializeField] private float opacityPerSecondToRemove;
@@ -26,7 +27,7 @@ public class PlayerTimeTraveled : MonoBehaviour
             transform.position = positions[0];
             positions.RemoveAt(0);
         }
-        else
+        else if (lastAnimation != 0)
         {
             LowerOpacityOfPlayerImage();
         }
@@ -38,6 +39,7 @@ public class PlayerTimeTraveled : MonoBehaviour
         if (animationStates != null && animationStates.Count > 0)
         {
             animator.SetInteger("state", animationStates[0]);
+            lastAnimation = animationStates[0];
             animationStates.RemoveAt(0);
         }
     }
