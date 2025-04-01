@@ -6,8 +6,7 @@ public class ButtonPlatform : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Color redColor;
     [SerializeField] private Color greenColor;
-    [SerializeField] private Button button;
-    private bool playerOnButton = false;
+    private float playersOnButton = 0;
     private bool buttonPressed = false;
     private SpriteRenderer spriteRenderer;
 
@@ -23,7 +22,7 @@ public class ButtonPlatform : MonoBehaviour
     {
         if (collision.gameObject.tag == "GroundCheck")
         {
-            playerOnButton = true;
+            playersOnButton += 1;
             timeWhenButtonPressed = Time.time + timeToBePressed;
         }
     }
@@ -31,18 +30,19 @@ public class ButtonPlatform : MonoBehaviour
     {
         if (collision.gameObject.tag == "GroundCheck")
         {
-            button.playerExitButton();
-            playerOnButton = false;
-            spriteRenderer.color = redColor;
-            timeWhenButtonPressed = Mathf.Infinity;
-            button.playerExitButton();
-            buttonPressed = false;
+            playersOnButton -= 1;
+            if (playersOnButton == 0)
+            {
+                timeWhenButtonPressed = Mathf.Infinity;
+                buttonPressed = false;
+                spriteRenderer.color = redColor;
+            }
         }
     }
 
     private void Update()
     {
-        if (Time.time > timeWhenButtonPressed)
+        if (Time.time > timeWhenButtonPressed && playersOnButton > 0)
         {
             ButtonPressed();
         }
@@ -52,7 +52,6 @@ public class ButtonPlatform : MonoBehaviour
     private void ButtonPressed()
     {
         buttonPressed = true;
-        button.playerEneterButton();
         spriteRenderer.color = greenColor;
     }
 

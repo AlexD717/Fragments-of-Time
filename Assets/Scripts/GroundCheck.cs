@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GroundCheck : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.gameObject.layer == 3)
+        {
+            return;
+        }
         isGrounded = collision != null && (((1 << collision.gameObject.layer) & groundLayerMask) != 0);
     }
 
