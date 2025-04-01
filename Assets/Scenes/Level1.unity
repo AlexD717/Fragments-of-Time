@@ -1061,6 +1061,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 788202471}
     m_Modifications:
+    - target: {fileID: 1054780144471019721, guid: 175895d4764d18446824802e391b984d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737188796504054023, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: m_Name
       value: SlidingWall
@@ -1104,6 +1108,10 @@ PrefabInstance:
     - target: {fileID: 8079840601047553969, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657309440985890483, guid: 175895d4764d18446824802e391b984d, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8657309440985890483, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: buttonPlatform
@@ -1184,26 +1192,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3534710047372327690, guid: c8f013b2cb2327144970920d853033ec, type: 3}
-      propertyPath: m_TagString
-      value: GroundCheck
-      objectReference: {fileID: 0}
-    - target: {fileID: 6953821914385376147, guid: c8f013b2cb2327144970920d853033ec, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 6953821914385376147, guid: c8f013b2cb2327144970920d853033ec, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 6953821914385376147, guid: c8f013b2cb2327144970920d853033ec, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 6953821914385376147, guid: c8f013b2cb2327144970920d853033ec, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8605248676521080169, guid: c8f013b2cb2327144970920d853033ec, type: 3}
       propertyPath: m_Name
       value: Player

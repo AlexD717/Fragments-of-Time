@@ -14,16 +14,18 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 3)
-        {
-            return;
-        }
+        if (collision.gameObject.layer == 3) { return; }
         isGrounded = collision != null && (((1 << collision.gameObject.layer) & groundLayerMask) != 0);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isGrounded = false;
-        timeLeftGround = Time.time;
+        if (collision.gameObject.layer == 3) { return; }
+        isGrounded = collision != null && (((1 << collision.gameObject.layer) & groundLayerMask) != 0);
+        if (isGrounded)
+        {
+            timeLeftGround = Time.time;
+            isGrounded = false;
+        }
     }
 }
