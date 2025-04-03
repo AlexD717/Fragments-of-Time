@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerTimeManager
   - GroundCheck
+  - GameManager
   layers:
   - Default
   - TransparentFX

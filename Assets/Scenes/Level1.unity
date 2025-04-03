@@ -547,11 +547,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1372417347}
+  - component: {fileID: 1372417349}
   - component: {fileID: 1372417348}
   - component: {fileID: 1372417346}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -603,6 +604,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottomPos: {fileID: 1685717584}
+--- !u!114 &1372417349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372417345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4118cde89e56784385b39f4437e29af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputSystem: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!114 &1393754983 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 527417440111337329, guid: 8d740fa440c11f04195b76c16015dfcd, type: 3}
@@ -955,10 +969,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 788202471}
     m_Modifications:
-    - target: {fileID: 1054780144471019721, guid: 175895d4764d18446824802e391b984d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5737188796504054023, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: m_Name
       value: SlidingWall
@@ -1002,10 +1012,6 @@ PrefabInstance:
     - target: {fileID: 8079840601047553969, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657309440985890483, guid: 175895d4764d18446824802e391b984d, type: 3}
-      propertyPath: speed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8657309440985890483, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: buttonPlatform
