@@ -9839,7 +9839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedAtWhichToHid: 2
-  hideEverythingSprite: {fileID: 1902129764313781135}
+  hideEverythingSpriteRenderer: {fileID: 1902129764313781135}
   glowLight: {fileID: 8869976221509487819}
 --- !u!1 &8869976221509487819
 GameObject:

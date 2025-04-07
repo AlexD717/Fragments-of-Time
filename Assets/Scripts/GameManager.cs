@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject passMenu;
     [SerializeField] private InputActionAsset inputSystem;
     private InputActionMap playerControls;
 
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         playerControls.Enable();
+
+        passMenu.SetActive(false);
     }
 
     public void LevelPast()
@@ -36,5 +39,6 @@ public class GameManager : MonoBehaviour
     public void ShowWinMenu()
     {
         Debug.Log("Showing Win Menu");
+        passMenu.SetActive(true);
     }
 }

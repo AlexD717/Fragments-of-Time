@@ -6,7 +6,7 @@ public class NextLevelPortal : MonoBehaviour
     [SerializeField] private float speedAtWhichToHid;
 
     [Header("References")]
-    [SerializeField] private SpriteRenderer hideEverythingSprite;
+    [SerializeField] private SpriteRenderer hideEverythingSpriteRenderer;
     [SerializeField] private GameObject glowLight;
 
     private bool hideEverything = false;
@@ -16,7 +16,7 @@ public class NextLevelPortal : MonoBehaviour
     private void Start()
     {
         glowLight.SetActive(true);
-        hideEverythingSprite.gameObject.SetActive(false);
+        hideEverythingSpriteRenderer.gameObject.SetActive(false);
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
@@ -27,7 +27,7 @@ public class NextLevelPortal : MonoBehaviour
             gameManager.LevelPast();
             hideEverything = true;
             glowLight.SetActive(false);
-            hideEverythingSprite.gameObject.SetActive(true);
+            hideEverythingSpriteRenderer.gameObject.SetActive(true);
         }
     }
 
@@ -35,11 +35,11 @@ public class NextLevelPortal : MonoBehaviour
     {
         if (hideEverything)
         {
-            if (hideEverythingSprite.color.a < 1)
+            if (hideEverythingSpriteRenderer.color.a < 1)
             {
-                hideEverythingSprite.color += new Color(0, 0, 0, speedAtWhichToHid * Time.unscaledDeltaTime);
+                hideEverythingSpriteRenderer.color += new Color(0, 0, 0, speedAtWhichToHid * Time.unscaledDeltaTime);
             }
-            if (hideEverythingSprite.color.a > 0.98)
+            if (hideEverythingSpriteRenderer.color.a > 0.98)
             {
                 if (!menuShown)
                 {
