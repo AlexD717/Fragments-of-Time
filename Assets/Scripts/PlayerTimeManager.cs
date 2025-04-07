@@ -22,6 +22,9 @@ public class PlayerTimeManager : MonoBehaviour
 
     private string sceneName;
 
+    public int timesRestarted = 0;
+    public float totalTimeTaken = 0f;
+
     private void OnEnable()
     {
         // Find input actions
@@ -77,6 +80,8 @@ public class PlayerTimeManager : MonoBehaviour
         if (sceneName != scene.name)
         {
             sceneName = scene.name;
+            timesRestarted = 0;
+            totalTimeTaken = 0;
             ClearPlayerData();
         }
         else
@@ -91,6 +96,8 @@ public class PlayerTimeManager : MonoBehaviour
 
     private void Update()
     {
+        totalTimeTaken += Time.deltaTime;
+
         if (timeTravelRestart.triggered)
         {
             TimeTravelRestart();
@@ -130,6 +137,8 @@ public class PlayerTimeManager : MonoBehaviour
 
     public void TimeTravelRestart()
     {
+        timesRestarted++;
+
         // Spawns a screen shatter animation if needed
         if (screenShatterOnTimeWarp)
         {
