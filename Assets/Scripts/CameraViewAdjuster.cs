@@ -5,15 +5,15 @@ public class CameraViewAdjuster : MonoBehaviour
 {
     [SerializeField] private float maxZoom;
     [SerializeField] private float baseZoom;
-    [SerializeField] private float zoomMultiplier;
-    [SerializeField] private float minDistanceBeforeZoom;
+    [SerializeField] private Vector2 zoomOffset;
+    [SerializeField] private float zoomSpeed;
 
     private GameObject playerTimeTraveled;
-    private CinemachineCamera virtualCamera;
+    private CinemachineCamera vcam;
 
     private void Start()
     {
-        virtualCamera = GetComponent<CinemachineCamera>();
+        vcam = GetComponent<CinemachineCamera>();
     }
 
     private void Update()
@@ -27,16 +27,36 @@ public class CameraViewAdjuster : MonoBehaviour
 
     private void AdjustCameraView()
     {
-        float distance = -minDistanceBeforeZoom;
+        Vector2 distance = Vector2.zero;
         if (playerTimeTraveled != null)
+            distance = new Vector2(Mathf.Abs(transform.position.x - playerTimeTraveled.transform.position.x), Mathf.Abs(transform.position.y - playerTimeTraveled.transform.position.y));
+        
+        float sizeX = distance.x / zoomOffset.x;
+        float sizeY = distance.y / zoomOffset.y;
+
+        if (sizeX > sizeY)
         {
-            distance = Vector2.Distance(playerTimeTraveled.transform.position, transform.position);
+            if (sizeX < baseZoom)
+            {
+                sizeX = baseZoom;
+            }
+            else if (sizeX > maxZoom)
+            {
+                sizeX = maxZoom;
+            }
+            vcam.Lens.OrthographicSize = Mathf.Lerp(vcam.Lens.OrthographicSize, sizeX, Time.deltaTime * zoomSpeed);
         }
-        distance = Mathf.Clamp(distance, 0, Mathf.Infinity);
-
-        float newZoom = baseZoom + (distance * zoomMultiplier);
-        newZoom = Mathf.Clamp(newZoom, baseZoom, maxZoom);
-
-        virtualCamera.Lens.OrthographicSize = newZoom;
+        else
+        {
+            if (sizeY < baseZoom)
+            {
+                sizeY = baseZoom;
+            }
+            else if (sizeY > maxZoom)
+            {
+                sizeY = maxZoom;
+            }
+            vcam.Lens.OrthographicSize = Mathf.Lerp(vcam.Lens.OrthographicSize, sizeY, Time.deltaTime * zoomSpeed);
+        }
     }
 }
