@@ -41,7 +41,7 @@ public class ScreenShatterAnimation : MonoBehaviour
             SpawnScreenShatter();
             if (numShatters >= numTotalShatters)
             {
-                Loader.Load(nextLevelToLoad);
+                Loader.LoadByName(nextLevelToLoad);
             }
             
             nextShatterTime = Time.time + Mathf.Pow(startingTime*(1-r), numShatters);

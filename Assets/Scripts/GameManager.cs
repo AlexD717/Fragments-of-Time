@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
     {
         playerControls.Enable();
 
-        passMenu.SetActive(false);
+        if (passMenu != null)
+            passMenu.SetActive(false);
     }
 
     public void LevelPast()

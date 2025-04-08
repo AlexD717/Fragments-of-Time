@@ -261,6 +261,8 @@ MonoBehaviour:
   screenShatterOnTimeWarp: 1
   timeTraveledPlayer: {fileID: 8722683000764712594, guid: 4d5819e3abb815f418283591610882a6, type: 3}
   inputSystem: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  timesRestarted: 0
+  totalTimeTaken: 0
 --- !u!4 &754383902
 Transform:
   m_ObjectHideFlags: 0
@@ -821,6 +823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 989703657}
   - component: {fileID: 989703656}
+  - component: {fileID: 989703658}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -861,6 +864,20 @@ Transform:
   - {fileID: 692385257}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &989703658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989703655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4118cde89e56784385b39f4437e29af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passMenu: {fileID: 0}
+  inputSystem: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &992611093
 GameObject:
   m_ObjectHideFlags: 0
