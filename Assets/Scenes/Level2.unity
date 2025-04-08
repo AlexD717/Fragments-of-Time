@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8079840601047553969, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.41
+      value: 8.33
       objectReference: {fileID: 0}
     - target: {fileID: 8079840601047553969, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -424,7 +424,7 @@ Transform:
   m_GameObject: {fileID: 1214286252}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.380001, y: 4.59, z: 0.02920584}
+  m_LocalPosition: {x: 22.300001, y: 4.59, z: 0.02920584}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -664,7 +664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8079840601047553969, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.85
+      value: 12.77
       objectReference: {fileID: 0}
     - target: {fileID: 8079840601047553969, guid: 175895d4764d18446824802e391b984d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -810,8 +810,8 @@ Transform:
   m_GameObject: {fileID: 2112513849}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7971, y: -3.684984, z: 0.02920584}
-  m_LocalScale: {x: 24.069498, y: 1, z: 1}
+  m_LocalPosition: {x: -2.4372, y: -3.684984, z: 0.02920584}
+  m_LocalScale: {x: 20.788824, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 788202471}
@@ -1159,7 +1159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8591605656615106807, guid: 8d740fa440c11f04195b76c16015dfcd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.779999
+      value: 22.699999
       objectReference: {fileID: 0}
     - target: {fileID: 8591605656615106807, guid: 8d740fa440c11f04195b76c16015dfcd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1276,6 +1276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4930050211459837527, guid: 67518ad5927a39a4bbdbcc972bd36ab1, type: 3}
+      propertyPath: orthographic size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5105922073136480843, guid: 67518ad5927a39a4bbdbcc972bd36ab1, type: 3}
       propertyPath: m_Name
       value: Main Camera
