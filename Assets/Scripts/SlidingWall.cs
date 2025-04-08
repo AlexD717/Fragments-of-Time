@@ -3,15 +3,10 @@ using UnityEngine;
 public class SlidingWall : MonoBehaviour
 {
     [SerializeField] private ButtonPlatform buttonPlatform;
-    private float originalXScale;
+    [SerializeField] private float unPressedXScale;
     [SerializeField] private float pressedXScale;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 moveAmounts;
-
-    private void Start()
-    {
-        originalXScale = transform.localScale.x;
-    }
 
     private void Update()
     {
@@ -22,7 +17,7 @@ public class SlidingWall : MonoBehaviour
     {
         float targetXScale;
         if (buttonPressed) { targetXScale = pressedXScale; }
-        else { targetXScale = originalXScale; }
+        else { targetXScale = unPressedXScale; }
 
         float xScale = transform.localScale.x;
 
@@ -36,6 +31,13 @@ public class SlidingWall : MonoBehaviour
 
             transform.localScale += new Vector3(xScaleChange, 0, 0);
             transform.position += new Vector3(xScaleChange / 2f * moveAmounts.x, -xScaleChange / 2f * moveAmounts.y, 0);
+        }
+
+        // Snap to target scale if close enough
+        if (Mathf.Abs(xScale - targetXScale) < 0.2f)
+        {
+            transform.localScale = new Vector3(targetXScale, transform.localScale.y, transform.localScale.z);
+            transform.position += new Vector3((targetXScale - xScale) / 2f * moveAmounts.x, -(targetXScale - xScale) / 2f * moveAmounts.y, 0);
         }
     }
 }
