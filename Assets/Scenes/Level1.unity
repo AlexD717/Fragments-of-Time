@@ -781,8 +781,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1830442349050638626, guid: 373cf2a06534b5b4cb75203979aa22b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4218685942732585588}
   m_SourcePrefab: {fileID: 100100000, guid: 373cf2a06534b5b4cb75203979aa22b1, type: 3}
+--- !u!1 &4218685942732585587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1830442349050638626, guid: 373cf2a06534b5b4cb75203979aa22b1, type: 3}
+  m_PrefabInstance: {fileID: 4218685942732585586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4218685942732585588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4218685942732585587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884ad5669f5b1a046ae74a29beb8d2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxZoom: 100
+  baseZoom: 5.8
+  zoomMultiplier: 0.2
+  minDistanceBeforeZoom: 10
 --- !u!1001 &4245059328036587842
 PrefabInstance:
   m_ObjectHideFlags: 0
