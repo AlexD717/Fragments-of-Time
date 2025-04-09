@@ -8,9 +8,25 @@ public class SlidingWall : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Vector2 moveAmounts;
 
+    private bool previousButtonState = false;
+    private CameraViewAdjuster cameraViewAdjuster;
+    [SerializeField] private float timeToWaitBeforeRemovingTarget; // Camera target
+    private float cameraTargetRemoveTime = Mathf.Infinity;
+
+    private void Start()
+    {
+        cameraViewAdjuster = FindAnyObjectByType<CameraViewAdjuster>();
+    }
+
     private void Update()
     {
-        UpdateWallScale(buttonPlatform.IsButtonPressed());
+        bool buttonPressed = buttonPlatform.IsButtonPressed();
+        
+        UpdateCameraTargets(buttonPressed);
+        UpdateWallScale(buttonPressed);
+
+        previousButtonState = buttonPressed;
+
     }
 
     private void UpdateWallScale(bool buttonPressed)
@@ -38,6 +54,24 @@ public class SlidingWall : MonoBehaviour
         {
             transform.localScale = new Vector3(targetXScale, transform.localScale.y, transform.localScale.z);
             transform.position += new Vector3((targetXScale - xScale) / 2f * moveAmounts.x, -(targetXScale - xScale) / 2f * moveAmounts.y, 0);
+        }
+    }
+
+    private void UpdateCameraTargets(bool buttonPressed)
+    {
+        if (buttonPressed & !previousButtonState)
+        {
+            cameraViewAdjuster.AddNewTarget(gameObject);
+        }
+        if (!buttonPressed & previousButtonState)
+        {
+            cameraTargetRemoveTime = Time.time + timeToWaitBeforeRemovingTarget;
+        }
+
+        if (Time.time > cameraTargetRemoveTime)
+        {
+            cameraTargetRemoveTime = Mathf.Infinity;
+            cameraViewAdjuster.RemoveTarget(gameObject);
         }
     }
 }

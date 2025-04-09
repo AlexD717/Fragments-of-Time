@@ -106,4 +106,17 @@ public class CameraViewAdjuster : MonoBehaviour
 
         return new Vector2(bounds.size.x, bounds.size.y);
     }
+
+    public void AddNewTarget(GameObject target)
+    {
+        targets.Add(target);
+    }
+
+    public void RemoveTarget(GameObject target)
+    {
+        if (targets.Contains(target))
+        {
+            targets.Remove(target);
+        }
+    }
 }
