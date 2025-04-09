@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2942442575706720620}
   - component: {fileID: 8211963263411816873}
-  - component: {fileID: 5609019581765052968}
   - component: {fileID: 2998206523955948352}
   m_Layer: 0
   m_Name: CinemachineCamera
@@ -59,7 +58,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 8
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -77,25 +76,6 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &5609019581765052968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830442349050638626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TrackerSettings:
-    BindingMode: 3
-    PositionDamping: {x: 0, y: 0, z: 0}
-    AngularDampingMode: 0
-    RotationDamping: {x: 0, y: 0, z: 0}
-    QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 0, z: -10}
 --- !u!114 &2998206523955948352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxZoom: 250
-  baseZoom: 8
-  zoomOffset: {x: 1.5, y: 1}
+  baseZoom: 7
+  zoomOffset: {x: 2, y: 1.5}
   zoomSpeed: 5
+  moveSpeed: 0.1
+  cameraZPos: -10

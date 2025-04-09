@@ -1202,11 +1202,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d740fa440c11f04195b76c16015dfcd, type: 3}
---- !u!4 &3780281393970322763 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8802693410948216312, guid: c8f013b2cb2327144970920d853033ec, type: 3}
-  m_PrefabInstance: {fileID: 6372785428684101004}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4218685942732585586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1259,10 +1254,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8211963263411816873, guid: 373cf2a06534b5b4cb75203979aa22b1, type: 3}
-      propertyPath: Target.TrackingTarget
-      value: 
-      objectReference: {fileID: 3780281393970322763}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1278,7 +1269,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4930050211459837527, guid: 67518ad5927a39a4bbdbcc972bd36ab1, type: 3}
       propertyPath: orthographic size
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5105922073136480843, guid: 67518ad5927a39a4bbdbcc972bd36ab1, type: 3}
       propertyPath: m_Name
