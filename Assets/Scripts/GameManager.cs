@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player Past Level");
         Time.timeScale = 0f;
         playerControls.Disable();
+        PlayerPrefsManager.LevelPast();
     }
 
     public void ShowWinMenu()
