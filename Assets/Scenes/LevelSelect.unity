@@ -929,6 +929,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1836011044}
     m_Modifications:
+    - target: {fileID: 2102090355131381323, guid: 7d12a3c24a32fc040b7097d29b3ac214, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102090355131381323, guid: 7d12a3c24a32fc040b7097d29b3ac214, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102090355131381323, guid: 7d12a3c24a32fc040b7097d29b3ac214, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102090355131381323, guid: 7d12a3c24a32fc040b7097d29b3ac214, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6098749784212396087, guid: 7d12a3c24a32fc040b7097d29b3ac214, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0

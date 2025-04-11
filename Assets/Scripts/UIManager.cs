@@ -23,16 +23,16 @@ public class UIManager : MonoBehaviour
         Loader.LoadByIndex(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void LoadScreenShatterLevel(string levelNum)
+    public void LoadScreenShatterLevel(string levelName)
     {
         ScreenShatterAnimation screenShatterAnimation = FindFirstObjectByType<ScreenShatterAnimation>();
         if (screenShatterAnimation != null)
         {
-            screenShatterAnimation.ShatterScreen("Level" + levelNum);
+            screenShatterAnimation.ShatterScreen(levelName);
         }
         else
         {
-            Loader.LoadByName("Level" + levelNum);
+            Loader.LoadByName(levelName);
         }
     }
 }

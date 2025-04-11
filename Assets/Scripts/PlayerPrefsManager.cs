@@ -9,6 +9,9 @@ public class PlayerPrefsManager : MonoBehaviour
 
     private void Awake()
     {
+        // Makes sure their is only one PlayerPrefsManager and makes it so that its not destroyed on load
+        // Not needed if all functions are public static
+        /*
         if (FindObjectsByType<PlayerPrefsManager>(FindObjectsSortMode.None).Length > 1 && !trueManager)
         {
             Destroy(gameObject);
@@ -18,7 +21,7 @@ public class PlayerPrefsManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             trueManager = true;
-        }
+        }*/
     }
 
     private void Start()

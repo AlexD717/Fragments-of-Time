@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
+using System.Runtime.CompilerServices;
 
 public class LevelSelectUIManager : MonoBehaviour
 {
@@ -13,12 +14,20 @@ public class LevelSelectUIManager : MonoBehaviour
     {
         uiManager = GetComponent<UIManager>();
 
-        numLevels = menu.transform.childCount;
+        int maxLevelPassed = PlayerPrefs.GetInt("MaxLevelPast", 0);
+        numLevels = Mathf.Clamp(menu.transform.childCount, 0, maxLevelPassed + 1); 
 
         for (int i = 0; i < numLevels; i++)
         {
             int levelNumber = i + 1;
             menu.transform.GetChild(i).GetChild(1).GetComponent<Button>().onClick.AddListener(() => LoadLevel(levelNumber.ToString()));
+        }
+
+        currentSelectedLevel = numLevels - 1;
+        SelectLevel(currentSelectedLevel);
+        if (maxLevelPassed < numLevels)
+        {
+            menu.transform.GetChild(currentSelectedLevel).GetChild(0).GetComponent<Image>().color -= new Color(0, 0, 0, 0.9f);
         }
     }
 
