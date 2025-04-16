@@ -61,5 +61,7 @@ public class GameManager : MonoBehaviour
 
         passMenu.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Time Restarted: " + timesRestarted;
         passMenu.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = timeTakenText;
+
+        PlayerPrefsManager.SaveFastestLevelPassTime(totalTimeTaken, timeTakenText);
     }
 }

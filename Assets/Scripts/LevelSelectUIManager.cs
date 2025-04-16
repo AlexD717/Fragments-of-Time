@@ -1,6 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
-using System.Runtime.CompilerServices;
+using TMPro;
 
 public class LevelSelectUIManager : MonoBehaviour
 {
@@ -14,13 +14,18 @@ public class LevelSelectUIManager : MonoBehaviour
     {
         uiManager = GetComponent<UIManager>();
 
-        int maxLevelPassed = PlayerPrefs.GetInt("MaxLevelPast", 0);
+        int maxLevelPassed = PlayerPrefsManager.GetMaxLevelPast();
         numLevels = Mathf.Clamp(menu.transform.childCount, 0, maxLevelPassed + 1); 
 
         for (int i = 0; i < numLevels; i++)
         {
             int levelNumber = i + 1;
+            
+            // Add Listner to Load Level Button
             menu.transform.GetChild(i).GetChild(1).GetComponent<Button>().onClick.AddListener(() => LoadLevel(levelNumber.ToString()));
+        
+            // Change fastest pass time text
+            menu.transform.GetChild(i).GetChild(2).GetComponent<TextMeshProUGUI>().text = PlayerPrefsManager.GetFastestLevelPassTimeText(i+1);
         }
 
         currentSelectedLevel = numLevels - 1;

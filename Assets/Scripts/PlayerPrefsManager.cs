@@ -5,29 +5,11 @@ public class PlayerPrefsManager : MonoBehaviour
 {
     private const string currentVersion = "0.0";
 
-    private bool trueManager;
-
-    private void Awake()
-    {
-        // Makes sure their is only one PlayerPrefsManager and makes it so that its not destroyed on load
-        // Not needed if all functions are public static
-        /*
-        if (FindObjectsByType<PlayerPrefsManager>(FindObjectsSortMode.None).Length > 1 && !trueManager)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-            trueManager = true;
-        }*/
-    }
-
     private void Start()
     {
         if (PlayerPrefs.GetString("CurrentVersion", "") != currentVersion)
         {
+            Debug.Log("Clearing All Player Prefs");
             PlayerPrefs.DeleteAll();
             PlayerPrefs.SetString("CurrentVersion", currentVersion);
         }
@@ -37,15 +19,36 @@ public class PlayerPrefsManager : MonoBehaviour
 
     public static void LevelPast()
     {
-        int maxLevelPassed = PlayerPrefs.GetInt("MaxLevelPast", 0);
+        int maxLevelPassed = GetMaxLevelPast();
         string currentSceneName = SceneManager.GetActiveScene().name;
-        Debug.Log(currentSceneName);
         int currentSceneLevel = int.Parse(currentSceneName.Substring(currentSceneName.Length - 1));
-        Debug.Log(currentSceneLevel);
+
         if (currentSceneLevel > maxLevelPassed)
         {
             PlayerPrefs.SetInt("MaxLevelPast", currentSceneLevel);
             Debug.Log("New Max Level Past: " + currentSceneLevel.ToString());
         }
+    }
+
+    public static int GetMaxLevelPast()
+    {
+        return PlayerPrefs.GetInt("MaxLevelPast", 0);
+    }
+
+    public static void SaveFastestLevelPassTime(float passsTime, string passTimeText)
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        float fastestPassTime = PlayerPrefs.GetFloat(currentSceneName + "PassTime", Mathf.Infinity);
+        if (passsTime < fastestPassTime)
+        {
+            PlayerPrefs.SetFloat(currentSceneName + "PassTime", passsTime);
+            PlayerPrefs.SetString(currentSceneName + "PassTimeText", passTimeText);
+        }
+    }
+
+    public static string GetFastestLevelPassTimeText(int level)
+    {
+        return PlayerPrefs.GetString($"Level{level.ToString()}PassTimeText", "Level Not Passed");
     }
 }

@@ -72,8 +72,11 @@ public class PlayerTimeManager : MonoBehaviour
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "LoadingScreen") { return; }
-        if (scene.name == "LevelSelect") { return; }
+        if (scene.name == "LoadingScreen" || scene.name == "LevelSelect") 
+        { 
+            ClearPlayerData();
+            return; 
+        }
         
         realPlayer = GameObject.FindGameObjectWithTag("Player").transform;
         realPlayerMovement = realPlayer.GetComponent<PlayerMovement>();
