@@ -15,6 +15,8 @@ public class OptionMenu : MonoBehaviour
         musicManager = FindFirstObjectByType<MusicManager>();
         
         gameObject.SetActive(false);
+
+        musicVolumeSlider.value = musicManager.GetMusicVolume();
     }
 
     private void Update()
