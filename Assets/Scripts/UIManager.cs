@@ -35,4 +35,9 @@ public class UIManager : MonoBehaviour
             Loader.LoadByName(levelName);
         }
     }
+
+    public void ShowObject(GameObject objectToShow)
+    {
+        objectToShow.SetActive(true);
+    }
 }

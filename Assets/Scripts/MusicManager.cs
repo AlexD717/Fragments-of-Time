@@ -54,4 +54,9 @@ public class MusicManager : MonoBehaviour
         audioResources.Remove(audioSource.clip);
         audioSource.Play();
     }
+
+    public void SetMusicVolume(float volume)
+    {
+        audioSource.volume = volume;
+    }
 }
