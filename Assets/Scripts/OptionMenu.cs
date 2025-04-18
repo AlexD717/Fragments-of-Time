@@ -11,6 +11,8 @@ public class OptionMenu : MonoBehaviour
     private void Start()
     {
         musicManager = FindFirstObjectByType<MusicManager>();
+        
+        gameObject.SetActive(false);
     }
 
     private void Update()
@@ -18,5 +20,10 @@ public class OptionMenu : MonoBehaviour
         float musicVolume = musicVolumeSlider.value;
         musicVolumeText.text = $"Music Volume: {(musicVolume * 100).ToString("F0")}%";
         musicManager.SetMusicVolume(musicVolume);
+    }
+
+    public void CloseOptionMenu()
+    {
+        gameObject.SetActive(false);
     }
 }
