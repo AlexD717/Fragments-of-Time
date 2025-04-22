@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1195993791938971120}
   - component: {fileID: 7815326849615269036}
   - component: {fileID: 2870871025097467465}
+  - component: {fileID: 8211107993652002549}
   m_Layer: 5
   m_Name: ScreenShatter
   m_TagString: Untagged
@@ -173,3 +174,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8211107993652002549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964680118290160213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95e8575d71edd44fa33371cbeb77276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
