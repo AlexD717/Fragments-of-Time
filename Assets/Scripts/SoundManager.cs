@@ -28,9 +28,10 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        sfxVolume = 0.5f;
+        sfxVolume = PlayerPrefsManager.GetSFXVolume();
 
         audioSource = GetComponent<AudioSource>();
+        SetMusicVolume(PlayerPrefsManager.GetMusicVolume());
 
         audioResources = new List<AudioClip>();
     }
@@ -61,6 +62,7 @@ public class SoundManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         audioSource.volume = volume;
+        PlayerPrefsManager.SetMusicVolume(volume);
     }
 
     public float GetMusicVolume()
@@ -71,6 +73,7 @@ public class SoundManager : MonoBehaviour
     public void SetSFXVolume(float volume)
     {
         sfxVolume = volume;
+        PlayerPrefsManager.SetSFXVolume(volume);
     }
 
     public float GetSFXVolume()

@@ -51,4 +51,24 @@ public class PlayerPrefsManager : MonoBehaviour
     {
         return PlayerPrefs.GetString($"Level{level.ToString()}PassTimeText", "Level Not Passed");
     }
+
+    public static void SetMusicVolume(float musicVolume)
+    {
+        PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+    }
+
+    public static float GetMusicVolume()
+    {
+        return PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+    }
+
+    public static void SetSFXVolume(float sfxVolume)
+    {
+        PlayerPrefs.SetFloat("SFXVolume", sfxVolume);
+    }
+
+    public static float GetSFXVolume()
+    {
+        return PlayerPrefs.GetFloat("SFXVolume", 0.5f);
+    }
 }
