@@ -1,18 +1,19 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class MusicManager : MonoBehaviour
+public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] bgMusic;
     private List<AudioClip> audioResources;
 
     private AudioSource audioSource;
+    private float sfxVolume;
 
     private bool realAudioManager = false;  
 
     private void Awake()
     {
-        if (FindObjectsByType<MusicManager>(FindObjectsSortMode.None).Length > 1 && !realAudioManager)
+        if (FindObjectsByType<SoundManager>(FindObjectsSortMode.None).Length > 1 && !realAudioManager)
         {
             Destroy(gameObject);
             gameObject.SetActive(false);
@@ -27,6 +28,8 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
+        sfxVolume = 0.5f;
+
         audioSource = GetComponent<AudioSource>();
 
         audioResources = new List<AudioClip>();
@@ -63,5 +66,15 @@ public class MusicManager : MonoBehaviour
     public float GetMusicVolume()
     {
         return audioSource.volume;
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        sfxVolume = volume;
+    }
+
+    public float GetSFXVolume()
+    {
+        return sfxVolume;
     }
 }

@@ -6,24 +6,31 @@ public class OptionMenu : MonoBehaviour
 {
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private TextMeshProUGUI musicVolumeText;
-    private MusicManager musicManager;
+    [SerializeField] private Slider sfxVolumeSlider;
+    [SerializeField] private TextMeshProUGUI sfxVolumeText;
+    private SoundManager soundManager;
     private Animator animator;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        musicManager = FindFirstObjectByType<MusicManager>();
+        soundManager = FindFirstObjectByType<SoundManager>();
         
         gameObject.SetActive(false);
 
-        musicVolumeSlider.value = musicManager.GetMusicVolume();
+        musicVolumeSlider.value = soundManager.GetMusicVolume();
+        sfxVolumeSlider.value = soundManager.GetSFXVolume();
     }
 
     private void Update()
     {
         float musicVolume = musicVolumeSlider.value;
         musicVolumeText.text = $"Music Volume: {(musicVolume * 100).ToString("F0")}%";
-        musicManager.SetMusicVolume(musicVolume);
+        soundManager.SetMusicVolume(musicVolume);
+
+        float sfxVolume = sfxVolumeSlider.value;
+        sfxVolumeText.text = $"SFX Volume: {(sfxVolume * 100).ToString("F0")}%";
+        soundManager.SetSFXVolume(sfxVolume);
     }
 
     public void CloseOptionMenu()
