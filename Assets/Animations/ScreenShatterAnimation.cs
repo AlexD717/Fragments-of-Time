@@ -10,7 +10,7 @@ public class ScreenShatterAnimation : MonoBehaviour
     private bool buttonsDisabled = false;
 
     [SerializeField] private float volumeReductionNum;
-    [SerializeField] private float newVolume;
+    [SerializeField] private float volumeReductionMult;
 
     private bool screenShatterAnimStarted = false;
     private int numShatters = 0;
@@ -67,7 +67,7 @@ public class ScreenShatterAnimation : MonoBehaviour
         // Reduce volume when to many shatters
         if (numShatters >= volumeReductionNum)
         {
-            screenShatter.GetComponent<AudioSource>().volume = newVolume;
+            screenShatter.GetComponent<AudioSource>().volume *= volumeReductionMult;
         }
     }
 }

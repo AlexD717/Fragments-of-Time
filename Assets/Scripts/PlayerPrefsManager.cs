@@ -69,6 +69,6 @@ public class PlayerPrefsManager : MonoBehaviour
 
     public static float GetSFXVolume()
     {
-        return PlayerPrefs.GetFloat("SFXVolume", 0.5f);
+        return PlayerPrefs.GetFloat("SFXVolume", 0.4f);
     }
 }
