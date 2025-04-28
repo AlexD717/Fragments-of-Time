@@ -6,6 +6,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private float fireCooldown;
     private float nextFireTime = 0f;
     [SerializeField] private float laserSpeed;
+    [SerializeField] private bool cameraShowsThis;
 
     [Header("References")]
     [SerializeField] private GameObject laser;
