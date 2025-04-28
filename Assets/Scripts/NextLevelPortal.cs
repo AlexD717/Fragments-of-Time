@@ -12,6 +12,7 @@ public class NextLevelPortal : MonoBehaviour
     private bool hideEverything = false;
     private bool menuShown = false;
     private GameManager gameManager;
+    private bool levelSkipped = false;
 
     private void Start()
     {
@@ -24,11 +25,22 @@ public class NextLevelPortal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameManager.LevelPast();
-            hideEverything = true;
-            glowLight.SetActive(false);
-            hideEverythingSpriteRenderer.gameObject.SetActive(true);
+            LevelPast();
         }
+    }
+
+    private void LevelPast()
+    {
+        gameManager.LevelPast();
+        hideEverything = true;
+        glowLight.SetActive(false);
+        hideEverythingSpriteRenderer.gameObject.SetActive(true);
+    }
+
+    public void SkipThisLevel()
+    {
+        LevelPast();
+        levelSkipped = true;
     }
 
     private void Update()
@@ -44,7 +56,7 @@ public class NextLevelPortal : MonoBehaviour
                 if (!menuShown)
                 {
                     menuShown = true;
-                    gameManager.ShowWinMenu();
+                    gameManager.ShowWinMenu(levelSkipped);
                 }
             }
         }

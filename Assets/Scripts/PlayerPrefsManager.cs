@@ -40,7 +40,7 @@ public class PlayerPrefsManager : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
 
         float fastestPassTime = PlayerPrefs.GetFloat(currentSceneName + "PassTime", Mathf.Infinity);
-        if (passsTime < fastestPassTime)
+        if (passsTime <= fastestPassTime)
         {
             PlayerPrefs.SetFloat(currentSceneName + "PassTime", passsTime);
             PlayerPrefs.SetString(currentSceneName + "PassTimeText", passTimeText);

@@ -39,26 +39,36 @@ public class GameManager : MonoBehaviour
         PlayerPrefsManager.LevelPast();
     }
 
-    public void ShowWinMenu()
+    public void ShowWinMenu(bool skippedLevel)
     {
         Debug.Log("Showing Win Menu");
         passMenu.SetActive(true);
 
         PlayerTimeManager playerTimeManager = FindFirstObjectByType<PlayerTimeManager>();
         int timesRestarted = playerTimeManager.timesRestarted;
+
         float totalTimeTaken = playerTimeManager.totalTimeTaken;
         string timeTakenText = "Time Taken: ";
-        if (totalTimeTaken >= 60)
+        if (!skippedLevel)
         {
-            int minutes = (int)Mathf.Floor(totalTimeTaken / 60f);
-            float seconds = totalTimeTaken - (minutes * 60);
-            timeTakenText += $"{minutes.ToString()} minutes {seconds.ToString("F2")} seconds";
+            if (totalTimeTaken >= 60)
+            {
+                int minutes = (int)Mathf.Floor(totalTimeTaken / 60f);
+                float seconds = totalTimeTaken - (minutes * 60);
+                timeTakenText += $"{minutes.ToString()} minutes {seconds.ToString("F2")} seconds";
+            }
+            else
+            {
+                timeTakenText += totalTimeTaken.ToString("F2") + " seconds";
+            }
         }
         else
         {
-            timeTakenText += totalTimeTaken.ToString("F2") + " seconds";
+            // Level was skipped
+            totalTimeTaken = Mathf.Infinity;
+            timeTakenText = "Level Skiped";
         }
-
+        
         passMenu.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Time Restarted: " + timesRestarted;
         passMenu.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = timeTakenText;
 
