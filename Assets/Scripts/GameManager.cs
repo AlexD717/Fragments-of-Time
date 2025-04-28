@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         {
             // Level was skipped
             totalTimeTaken = Mathf.Infinity;
-            timeTakenText = "Level Skiped";
+            timeTakenText = "Level Skipped";
         }
         
         passMenu.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Time Restarted: " + timesRestarted;

@@ -13,6 +13,8 @@ public class OutsideBoundsKill : MonoBehaviour
 
     private void Update()
     {
+        if (player == null) { return; }
+
         if (player.transform.position.y < bottomPos.position.y)
         {
             player.GetComponent<Player>().InstaKillPlayer();

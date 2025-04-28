@@ -59,4 +59,9 @@ public class PlayerTimeTraveled : MonoBehaviour
         }
         if (completelyTransparent) { Destroy(gameObject); }
     }
+
+    public void InstaKill()
+    {
+        Destroy(gameObject);
+    }
 }
