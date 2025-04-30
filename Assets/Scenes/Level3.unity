@@ -147,8 +147,8 @@ Transform:
   m_GameObject: {fileID: 322668063}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.8841, y: 0.67, z: 0.02920584}
-  m_LocalScale: {x: 10.831436, y: 1, z: 1}
+  m_LocalPosition: {x: -5.2751, y: 0.67, z: 0.02920584}
+  m_LocalScale: {x: 10.049406, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 788202471}
@@ -743,6 +743,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 188097833691880844, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
   m_PrefabInstance: {fileID: 5487284319267894255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1903380388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1254017656311962078, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
+  m_PrefabInstance: {fileID: 5487284319267894255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1994713722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1228,7 +1233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2998206523955948352, guid: 373cf2a06534b5b4cb75203979aa22b1, type: 3}
       propertyPath: zoomOffset.x
-      value: 1.7
+      value: 2.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1344,17 +1349,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2363890638395711443, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
-      propertyPath: laserSpeed
-      value: 7
+    - target: {fileID: 1218115755286074395, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218115755286074395, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 2363890638395711443, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
-      propertyPath: fireCooldown
-      value: 3
-      objectReference: {fileID: 0}
+      propertyPath: turretHead
+      value: 
+      objectReference: {fileID: 1903380388}
     - target: {fileID: 4113244824394571816, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711750195345992269, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
