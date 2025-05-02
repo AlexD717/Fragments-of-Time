@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turret : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private GameObject laser;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject turretHead;
+    [SerializeField] private Image fillImage;
 
     private void Start()
     {
@@ -23,6 +25,9 @@ public class Turret : MonoBehaviour
                 cameraViewAdjuster.AddNewTarget(gameObject);
             }
         }
+
+        nextFireTime = Time.time + fireCooldown;
+        fillImage.fillAmount = 0f;
     }
 
     private void Update()
@@ -32,6 +37,10 @@ public class Turret : MonoBehaviour
             nextFireTime = Time.time + fireCooldown;
             FireLaser();
         }
+        else
+        {
+            fillImage.fillAmount = Mathf.Clamp((1 - (nextFireTime - Time.time)/fireCooldown), 0f, 1f);
+        }
     }
 
     private void FireLaser()
@@ -40,5 +49,7 @@ public class Turret : MonoBehaviour
         Laser spawnedLaser = spawnedLaserObject.GetComponent<Laser>();
         spawnedLaser.speed = laserSpeed;
         spawnedLaser.parentSpawner = turretHead;
+
+        fillImage.fillAmount = 0f;
     }
 }

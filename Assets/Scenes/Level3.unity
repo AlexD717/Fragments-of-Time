@@ -1344,10 +1344,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2363890638395711443, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
-      propertyPath: cameraShowsThis
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4113244824394571816, guid: f2fb81fe59c6a43488bad3bff05ce867, type: 3}
       propertyPath: m_Name
       value: Turret
