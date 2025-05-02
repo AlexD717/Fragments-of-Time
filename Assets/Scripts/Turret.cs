@@ -18,7 +18,10 @@ public class Turret : MonoBehaviour
         if (cameraShowsThis)
         {
             CameraViewAdjuster cameraViewAdjuster = FindFirstObjectByType<CameraViewAdjuster>();
-            cameraViewAdjuster.AddNewTarget(gameObject);
+            if (cameraViewAdjuster != null)
+            {
+                cameraViewAdjuster.AddNewTarget(gameObject);
+            }
         }
     }
 

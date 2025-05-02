@@ -17,11 +17,13 @@ public class CameraViewAdjuster : MonoBehaviour
 
     private Vector3 velocity;
 
+    private void Awake()
+    {
+        targets = new List<GameObject>();
+    }
     private void Start()
     {
         vcam = GetComponent<CinemachineCamera>();
-
-        targets = new List<GameObject>();
 
         playerTimeTraveled = GameObject.FindGameObjectWithTag("PlayerTimeTraveled");
         if (playerTimeTraveled != null)
@@ -109,7 +111,10 @@ public class CameraViewAdjuster : MonoBehaviour
 
     public void AddNewTarget(GameObject target)
     {
-        targets.Add(target);
+        if (target != null)
+        {
+            targets.Add(target);
+        }
     }
 
     public void RemoveTarget(GameObject target)
