@@ -416,6 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188097833691880844}
   - component: {fileID: 2363890638395711443}
+  - component: {fileID: 7901164960577308332}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -456,11 +457,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireCooldown: 3
   laserSpeed: 7
-  cameraShowsThis: 1
   laser: {fileID: 1860674926270528951, guid: ae65b79966242254bb1797607a1fab12, type: 3}
   firePoint: {fileID: 1218115755286074395}
   turretHead: {fileID: 1254017656311962078}
   fillImage: {fileID: 6965817966711539405}
+--- !u!114 &7901164960577308332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113244824394571816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14759c8e8290e0144bf74f9f9bda2ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4395950976187015630
 GameObject:
   m_ObjectHideFlags: 0

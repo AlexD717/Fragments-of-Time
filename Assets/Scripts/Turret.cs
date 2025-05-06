@@ -7,7 +7,6 @@ public class Turret : MonoBehaviour
     [SerializeField] private float fireCooldown;
     private float nextFireTime = 0f;
     [SerializeField] private float laserSpeed;
-    [SerializeField] private bool cameraShowsThis;
 
     [Header("References")]
     [SerializeField] private GameObject laser;
@@ -17,15 +16,6 @@ public class Turret : MonoBehaviour
 
     private void Start()
     {
-        if (cameraShowsThis)
-        {
-            CameraViewAdjuster cameraViewAdjuster = FindFirstObjectByType<CameraViewAdjuster>();
-            if (cameraViewAdjuster != null)
-            {
-                cameraViewAdjuster.AddNewTarget(gameObject);
-            }
-        }
-
         nextFireTime = Time.time + fireCooldown;
         fillImage.fillAmount = 0f;
     }
