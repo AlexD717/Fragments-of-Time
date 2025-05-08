@@ -23,7 +23,16 @@ public class LiftObject : MonoBehaviour
         Debug.Log(endLocation);
         Debug.Log(startLocation);
     }
- 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Rigidbody2D playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            playerRB.linearVelocity = Vector2.zero;
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
