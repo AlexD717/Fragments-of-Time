@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 322668066}
   - component: {fileID: 322668065}
   m_Layer: 6
-  m_Name: Baseplatform (1)
+  m_Name: Topplatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,8 +147,8 @@ Transform:
   m_GameObject: {fileID: 322668063}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.8082, y: 0.67, z: 0.02920584}
-  m_LocalScale: {x: 17.189722, y: 1, z: 1}
+  m_LocalPosition: {x: -6.8131, y: 0.67, z: 0.02920584}
+  m_LocalScale: {x: 15.1811075, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 788202471}
@@ -1208,7 +1208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829923442508331112, guid: 022a23a9a46142548bf49d55ad375605, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
