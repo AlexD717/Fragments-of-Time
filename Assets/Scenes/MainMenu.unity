@@ -1280,14 +1280,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58924123ecd514a458fdc027f99b2e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenShatterWidth: {x: 7, y: 18}
-  numTotalShatters: 60
+  screenShatterWidth: {x: 10, y: 20}
+  numTotalShatters: 50
   screenShatterPrefab: {fileID: 4964680118290160213, guid: ffc7f4da7641f6e448608187be911f27, type: 3}
   buttonToDeactivate:
   - {fileID: 848209347}
   - {fileID: 1273134352}
   volumeReductionNum: 3
-  volumeReductionMult: 0.7
+  volumeReductionMult: 0.6
   startingTime: 0.9
   r: 0.4
   canvas: {fileID: 948920211}
