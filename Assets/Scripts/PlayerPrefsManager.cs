@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerPrefsManager : MonoBehaviour
 {
-    private const string currentVersion = "0.0";
+    private const string currentVersion = "0.1";
 
     private void Start()
     {
