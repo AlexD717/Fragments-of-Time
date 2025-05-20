@@ -9,6 +9,7 @@ public class SingleScreenShatterSpawner : MonoBehaviour
     private Vector2 validSpawnLocationY;
     [SerializeField] private Vector2 validWidth;
     private float lenght;
+    [SerializeField] private int maxNumberOfScreenShatters;
 
     [Header("References")]
     [SerializeField] private GameObject screenShatterPrefab;
@@ -29,6 +30,14 @@ public class SingleScreenShatterSpawner : MonoBehaviour
 
     public void SpawnSingleScreenShatter()
     {
+        GameObject[] screenShatters = GameObject.FindGameObjectsWithTag("ScreenShatter");
+        if (screenShatters.Length >= maxNumberOfScreenShatters)
+        {
+            // Limits the total number of screen shatters that can exist
+            return;
+        }
+
+
         // Random spawn location in valid spawn locations
         Vector2 spawnLocation = new Vector2(Random.Range(validSpawnLocationX.x, validSpawnLocationX.y), Random.Range(validSpawnLocationY.x, validSpawnLocationY.y));
 

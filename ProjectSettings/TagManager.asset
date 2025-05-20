@@ -8,6 +8,7 @@ TagManager:
   - PlayerTimeManager
   - GroundCheck
   - GameManager
+  - ScreenShatter
   layers:
   - Default
   - TransparentFX

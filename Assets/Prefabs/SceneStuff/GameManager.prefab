@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4118cde89e56784385b39f4437e29af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passMenu: {fileID: 0}
   inputSystem: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!114 &3478420636592323447
 MonoBehaviour:
@@ -78,6 +79,7 @@ MonoBehaviour:
   bottomLeft: {fileID: 6224343225411099192}
   topRight: {fileID: 4397070390228215995}
   validWidth: {x: 0.1, y: 0.2}
+  maxNumberOfScreenShatters: 50
   screenShatterPrefab: {fileID: 806684705335766152, guid: afe88055e8cf11f4eaef008665c31e4b, type: 3}
 --- !u!1 &1807219620472549747
 GameObject:
