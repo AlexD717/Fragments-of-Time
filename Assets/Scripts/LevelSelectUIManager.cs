@@ -32,6 +32,12 @@ public class LevelSelectUIManager : MonoBehaviour
             levelObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = PlayerPrefsManager.GetFastestLevelPassTimeText(i+1);
         }
 
+        // Hide all level select menus
+        foreach (Transform child in menu.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+
         currentSelectedLevel = numLevels - 1;
         SelectLevel(currentSelectedLevel);
         if (maxLevelPassed < numLevels)

@@ -370,7 +370,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5737188796504054023, guid: 175895d4764d18446824802e391b984d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1402973123}
   m_SourcePrefab: {fileID: 100100000, guid: 175895d4764d18446824802e391b984d, type: 3}
 --- !u!1 &730670161 stripped
 GameObject:
@@ -607,6 +610,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec258f81c625c4a48bb888ded8f2ba88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1402973119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5737188796504054023, guid: 175895d4764d18446824802e391b984d, type: 3}
+  m_PrefabInstance: {fileID: 695558938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1402973123
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402973119}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 800
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!4 &1493385197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4270410460149691055, guid: 212224f28f5ac6242ad76ffd439af200, type: 3}
@@ -1739,13 +1774,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 788202471}
     m_Modifications:
+    - target: {fileID: 3806097394995437946, guid: 212224f28f5ac6242ad76ffd439af200, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4270410460149691055, guid: 212224f28f5ac6242ad76ffd439af200, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.937347
       objectReference: {fileID: 0}
     - target: {fileID: 4270410460149691055, guid: 212224f28f5ac6242ad76ffd439af200, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.1150165
+      value: 6.954
       objectReference: {fileID: 0}
     - target: {fileID: 4270410460149691055, guid: 212224f28f5ac6242ad76ffd439af200, type: 3}
       propertyPath: m_LocalPosition.z
