@@ -593,6 +593,8 @@ GameObject:
   - component: {fileID: 1920189144}
   - component: {fileID: 1920189146}
   - component: {fileID: 1920189145}
+  - component: {fileID: 1920189148}
+  - component: {fileID: 1920189147}
   m_Layer: 5
   m_Name: Space to Jump
   m_TagString: Untagged
@@ -718,6 +720,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920189143}
   m_CullTransparentMesh: 1
+--- !u!114 &1920189147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920189143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153c971629b811847b7e8c375e041740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRange: 4.3
+  activateWithTimeTravelPlayer: 1
+--- !u!114 &1920189148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920189143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bb651e464e194d94e069749057fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTyping: 1
+  typingSpeed: 0.02
+  typingPeriodPause: 0.1
 --- !u!1 &1926115960
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +760,7 @@ GameObject:
   - component: {fileID: 1926115961}
   - component: {fileID: 1926115963}
   - component: {fileID: 1926115962}
+  - component: {fileID: 1926115965}
   m_Layer: 5
   m_Name: WASD To Move Around
   m_TagString: Untagged
@@ -854,6 +886,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926115960}
   m_CullTransparentMesh: 1
+--- !u!114 &1926115965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926115960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bb651e464e194d94e069749057fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTyping: 1
+  typingSpeed: 0.02
+  typingPeriodPause: 0.1
 --- !u!1 &2008521831
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +913,8 @@ GameObject:
   - component: {fileID: 2008521834}
   - component: {fileID: 2008521833}
   - component: {fileID: 2008521835}
+  - component: {fileID: 2008521837}
+  - component: {fileID: 2008521836}
   m_Layer: 5
   m_Name: R to Time Travel
   m_TagString: Untagged
@@ -1004,6 +1053,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14759c8e8290e0144bf74f9f9bda2ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2008521836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008521831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153c971629b811847b7e8c375e041740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRange: 4
+  activateWithTimeTravelPlayer: 1
+--- !u!114 &2008521837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008521831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bb651e464e194d94e069749057fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTyping: 1
+  typingSpeed: 0.02
+  typingPeriodPause: 0.1
 --- !u!1 &2112513849
 GameObject:
   m_ObjectHideFlags: 0
