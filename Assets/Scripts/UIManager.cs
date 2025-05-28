@@ -23,8 +23,13 @@ public class UIManager : MonoBehaviour
         Loader.LoadByIndex(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void LoadScreenShatterLevel(string levelName)
+    public void MainMenuPlayButton()
     {
+        string levelName = "LevelSelect";
+        if (!PlayerPrefsManager.GetBackgroundInfoGiven())
+        {
+            levelName = "BackgroundInfo";
+        }
         ScreenShatterAnimation screenShatterAnimation = FindFirstObjectByType<ScreenShatterAnimation>();
         if (screenShatterAnimation != null)
         {

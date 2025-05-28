@@ -35,6 +35,16 @@ public class PlayerPrefsManager : MonoBehaviour
         return PlayerPrefs.GetInt("MaxLevelPast", 0);
     }
 
+    public static void BackgroundInfoGiven()
+    {
+        PlayerPrefs.SetInt("BackgroundInfoGiven", 1);
+    }
+
+    public static bool GetBackgroundInfoGiven()
+    {
+        return PlayerPrefs.GetInt("BackgroundInfoGiven", 0) == 1;
+    }
+
     public static void SaveFastestLevelPassTime(float passsTime, string passTimeText)
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
