@@ -9,6 +9,8 @@ public class InfoTextManager : MonoBehaviour
     [SerializeField] private InputActionAsset inputActions;
     private InputAction nextText;
 
+    [SerializeField] private bool backgroundInfo;
+
     private void OnEnable()
     {
         var playerControls = inputActions.FindActionMap("UI");
@@ -40,9 +42,20 @@ public class InfoTextManager : MonoBehaviour
             else
             {
                 // All text has finished
-                PlayerPrefsManager.BackgroundInfoGiven(); // Makes sure information isn't given twice
-                // Load level select level
-                Loader.LoadByName("LevelSelect");
+                if (backgroundInfo)
+                {
+                    PlayerPrefsManager.BackgroundInfoGiven(); // Makes sure information isn't given twice
+                    // Load level select level
+                    Loader.LoadByName("LevelSelect");
+                }
+                else
+                {
+                    NextLevelPortal nextLevelPortal = FindFirstObjectByType<NextLevelPortal>();
+                    if (nextLevelPortal != null)
+                    {
+                        nextLevelPortal.ShowMenu();
+                    }
+                }
             }
         }
     }

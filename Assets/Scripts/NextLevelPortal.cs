@@ -5,13 +5,16 @@ public class NextLevelPortal : MonoBehaviour
 {
     [Header("Values")]
     [SerializeField] private float speedAtWhichToHid;
+    [SerializeField] private bool showExtraExplanation;
 
     [Header("References")]
     [SerializeField] private Image hideEverythingImage;
     [SerializeField] private GameObject glowLight;
+    [SerializeField] private GameObject extraExplanation;
 
     private bool hideEverything = false;
     private bool menuShown = false;
+    private bool extraExplanationShown = false;
     private GameManager gameManager;
     private bool levelSkipped = false;
 
@@ -54,13 +57,26 @@ public class NextLevelPortal : MonoBehaviour
             }
             if (hideEverythingImage.color.a > 0.98)
             {
-                if (!menuShown)
+                if (showExtraExplanation)
                 {
-                    menuShown = true;
-                    gameManager.ShowWinMenu(levelSkipped);
+                    if (!extraExplanationShown)
+                    {
+                        // Show extra explanation
+                        extraExplanation.gameObject.SetActive(true);
+                        extraExplanationShown = true;
+                    }
+                }
+                else if (!menuShown)
+                {
+                    ShowMenu();
                 }
             }
         }
     }
 
+    public void ShowMenu()
+    {
+        menuShown = true;
+        gameManager.ShowWinMenu(levelSkipped);
+    }
 }
