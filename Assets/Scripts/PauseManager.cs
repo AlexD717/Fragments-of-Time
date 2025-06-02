@@ -14,8 +14,6 @@ public class PauseManager : MonoBehaviour
     {
         var playerControlls = inputSystem.FindActionMap("Player");
         pauseGame = playerControlls.FindAction("Pause");
-
-        pauseGame.Enable();
     }
 
     private void OnDisable()

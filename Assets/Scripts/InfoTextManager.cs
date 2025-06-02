@@ -10,12 +10,15 @@ public class InfoTextManager : MonoBehaviour
     private InputAction nextText;
 
     [SerializeField] private bool backgroundInfo;
+    [SerializeField] private bool showMenu;
+    private bool playerDecision = false;
 
     private void OnEnable()
     {
         var playerControls = inputActions.FindActionMap("UI");
         nextText = playerControls.FindAction("Next");
         nextText.Enable();
+
     }
 
     private void OnDisable()
@@ -28,11 +31,15 @@ public class InfoTextManager : MonoBehaviour
         totalTextsToShow = transform.childCount;
         index = 0;
         ShowText(index);
+
+        Time.timeScale = 0f;
     }
 
     private void Update()
     {
-        if (nextText.triggered)
+        inputActions.FindActionMap("Player").Disable();
+
+        if (nextText.triggered && !playerDecision)
         {
             if (index < (totalTextsToShow - 1))
             {
@@ -48,7 +55,7 @@ public class InfoTextManager : MonoBehaviour
                     // Load level select level
                     Loader.LoadByName("LevelSelect");
                 }
-                else
+                else if (showMenu)
                 {
                     NextLevelPortal nextLevelPortal = FindFirstObjectByType<NextLevelPortal>();
                     if (nextLevelPortal != null)
@@ -56,17 +63,42 @@ public class InfoTextManager : MonoBehaviour
                         nextLevelPortal.ShowMenu();
                     }
                 }
+                else
+                {
+                    TextEnded();
+                }
             }
         }
     }
 
+    public void PlayerDecided(int index)
+    {
+        playerDecision = false;
+        ShowText(index);
+    }
+
+    private void TextEnded()
+    {
+        Time.timeScale = 1f;
+        inputActions.FindActionMap("Player").Enable();
+    }
+
     private void ShowText(int textIndex)
     {
+        if (textIndex == -1)
+        {
+            TextEnded();
+        }
+
         for (int i = 0; i < totalTextsToShow; i++)
         {
             if (i == textIndex)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
+                if (transform.GetChild(i).gameObject.CompareTag("Decision"))
+                {
+                    playerDecision = true;
+                }
             }
             else
             {

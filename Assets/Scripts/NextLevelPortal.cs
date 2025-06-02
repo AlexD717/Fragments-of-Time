@@ -20,7 +20,10 @@ public class NextLevelPortal : MonoBehaviour
 
     private void Start()
     {
-        glowLight.SetActive(true);
+        if (glowLight != null)
+        {
+            glowLight.SetActive(true);
+        }
         hideEverythingImage.gameObject.SetActive(false);
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
