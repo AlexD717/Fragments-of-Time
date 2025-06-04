@@ -71,16 +71,18 @@ public class InfoTextManager : MonoBehaviour
         }
     }
 
-    public void PlayerDecided(int index)
+    public void PlayerDecided(int _index)
     {
         playerDecision = false;
-        ShowText(index);
+        index = _index;
+        ShowText(_index);
     }
 
     private void TextEnded()
     {
         Time.timeScale = 1f;
         inputActions.FindActionMap("Player").Enable();
+        enabled = false; // Deactivates this component
     }
 
     private void ShowText(int textIndex)
