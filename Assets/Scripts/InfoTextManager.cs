@@ -37,8 +37,6 @@ public class InfoTextManager : MonoBehaviour
 
     private void Update()
     {
-        inputActions.FindActionMap("Player").Disable();
-
         if (nextText.triggered && !playerDecision)
         {
             if (index < (totalTextsToShow - 1))
