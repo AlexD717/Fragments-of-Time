@@ -682,6 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenShatterOnTimeWarp: 1
+  allowTimeTravel: 1
   timeTraveledPlayer: {fileID: 8722683000764712594, guid: 4d5819e3abb815f418283591610882a6, type: 3}
   inputSystem: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   timesRestarted: 0
@@ -1869,7 +1870,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 550, y: 108.8}
+  m_Size: {x: 600, y: 180}
   m_EdgeRadius: 0
 --- !u!95 &1273134351
 Animator:

@@ -16,8 +16,6 @@ public class OptionMenu : MonoBehaviour
         animator = GetComponent<Animator>();
         soundManager = FindFirstObjectByType<SoundManager>();
         
-        gameObject.SetActive(false);
-
         musicVolumeSlider.value = soundManager.GetMusicVolume();
         sfxVolumeSlider.value = soundManager.GetSFXVolume();
     }

@@ -44,6 +44,12 @@ public class FinalDecision : MonoBehaviour
     {
         Debug.Log("Player decided to keep the power");
         PlayerDecided();
+        Invoke("ShowPlayerKeptPowerScreen", 1f);
+    }
+
+    private void ShowPlayerKeptPowerScreen()
+    {
+        playerKeptPowerScreen.SetActive(true);
     }
 
     private void PlayerDecided()
