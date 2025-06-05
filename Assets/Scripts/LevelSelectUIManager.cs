@@ -17,7 +17,7 @@ public class LevelSelectUIManager : MonoBehaviour
         int maxLevelPassed = PlayerPrefsManager.GetMaxLevelPast();
         numLevels = Mathf.Clamp(menu.transform.childCount, 0, maxLevelPassed + 1); 
 
-        for (int i = 0; i < numLevels; i++)
+        for (int i = 0; i < (numLevels - 1); i++)
         {
             int levelNumber = i + 1;
 

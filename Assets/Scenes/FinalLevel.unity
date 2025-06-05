@@ -10069,6 +10069,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 946788732069940926, guid: 167650f61b3240f48a1c6a8cb9b8bcc3, type: 3}
+      propertyPath: allowTimeTravel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 946788732069940926, guid: 167650f61b3240f48a1c6a8cb9b8bcc3, type: 3}
+      propertyPath: useUnscaledTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1949248104797808155, guid: 167650f61b3240f48a1c6a8cb9b8bcc3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

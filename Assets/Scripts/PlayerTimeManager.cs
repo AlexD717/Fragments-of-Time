@@ -8,6 +8,7 @@ public class PlayerTimeManager : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private bool screenShatterOnTimeWarp;
     [SerializeField] private bool allowTimeTravel = true;
+    [SerializeField] private bool useUnscaledTime;
 
     [Header("References")]
     [SerializeField] private GameObject timeTraveledPlayer;
@@ -102,7 +103,14 @@ public class PlayerTimeManager : MonoBehaviour
 
     private void Update()
     {
-        totalTimeTaken += Time.deltaTime;
+        if (useUnscaledTime)
+        {
+            totalTimeTaken += Time.unscaledDeltaTime;
+        }
+        else
+        {
+            totalTimeTaken += Time.deltaTime;
+        }
 
         if (timeTravelRestart.triggered && allowTimeTravel)
         {
