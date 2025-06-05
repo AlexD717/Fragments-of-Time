@@ -5,6 +5,7 @@ using TMPro;
 public class LevelSelectUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject menu;
+    [SerializeField] private GameObject finalLevel;
     private UIManager uiManager;
 
     private int numLevels;
@@ -15,21 +16,24 @@ public class LevelSelectUIManager : MonoBehaviour
         uiManager = GetComponent<UIManager>();
 
         int maxLevelPassed = PlayerPrefsManager.GetMaxLevelPast();
-        numLevels = Mathf.Clamp(menu.transform.childCount, 0, maxLevelPassed + 1); 
+        numLevels = Mathf.Clamp(menu.transform.childCount, 0, maxLevelPassed + 1);
 
-        for (int i = 0; i < (numLevels - 1); i++)
+        for (int i = 0; i < (numLevels); i++)
         {
             int levelNumber = i + 1;
 
             GameObject levelObject = menu.transform.GetChild(i).gameObject;
 
-            // Add Listner to Load Level Button
-            levelObject.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => LoadLevel(levelNumber.ToString()));
-            // Add Listner to Level Image
-            levelObject.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => LoadLevel(levelNumber.ToString()));
-        
-            // Change fastest pass time text
-            levelObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = PlayerPrefsManager.GetFastestLevelPassTimeText(i+1);
+            if (levelObject != finalLevel)
+            {
+                // Add Listner to Load Level Button
+                levelObject.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => LoadLevel(levelNumber.ToString()));
+                // Add Listner to Level Image
+                levelObject.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => LoadLevel(levelNumber.ToString()));
+
+                // Change fastest pass time text
+                levelObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = PlayerPrefsManager.GetFastestLevelPassTimeText(i + 1);
+            }
         }
 
         // Hide all level select menus
