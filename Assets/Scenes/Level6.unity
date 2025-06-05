@@ -2104,7 +2104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5079227969888611414, guid: 212224f28f5ac6242ad76ffd439af200, type: 3}
       propertyPath: m_Name
-      value: Heavy Circle
+      value: Heavy Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879675502462833202, guid: 212224f28f5ac6242ad76ffd439af200, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
